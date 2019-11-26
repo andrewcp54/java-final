@@ -1,0 +1,15 @@
+SHM-Short hand messager
+hl- hello
+hru - how are you
+gm- good morning
+gn- good night
+gb- good bye
+ok- okay
+tt- that
+tts- thats
+ty- they
+tm- them
+wsu - whats up
+wt - what
+wts - whats
+
