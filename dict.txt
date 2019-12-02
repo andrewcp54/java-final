@@ -7,9 +7,13 @@ gb- good bye
 ok- okay
 tt- that
 tts- thats
-ty- they
+ty- thank you
+thy- they
 tm- them
 wsu - whats up
 wt - what
 wts - whats
+fc- fuck
+fy- fuck you
+lmk- let me know
 
