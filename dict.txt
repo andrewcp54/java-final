@@ -1,19 +1,37 @@
-SHM-Short hand messager
-hl- hello
-hru - how are you
-gm- good morning
-gn- good night
-gb- good bye
-ok- okay
-tt- that
-tts- thats
-ty- thank you
-thy- they
-tm- them
-wsu - whats up
-wt - what
-wts - whats
-fc- fuck
-fy- fuck you
-lmk- let me know
+SHM
+Short hand messager
+hl
+hello
+hru
+how are you
+gm
+good morning
+gn
+good night
+gb
+good bye
+ok
+okay
+tt
+that
+tts
+thats
+ty
+thank you
+thy
+they
+tm
+them
+wsu
+whats up
+wt
+what
+wts
+whats
+fc
+fuck
+fy
+fuck you
+lmk
+let me know
 
