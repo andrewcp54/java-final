@@ -1,7 +1,10 @@
 package com.javafinal.shm;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class tapAutocorr {
@@ -17,16 +20,21 @@ public class tapAutocorr {
                     String line2 = scanner.nextLine();
                     dict.put(line, line2);
                 }
-                //dict.put(line,"test");
-                //System.out.println(line);
             }
         } catch (FileNotFoundException e){
             e.printStackTrace();
         }
         Set< Map.Entry< String, String> > st = dict.entrySet();
-        for(Map.Entry< String,String> me:st){
-            System.out.print(me.getKey()+":");
-            System.out.println(me.getValue());
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            String text = reader.readLine();
+            for(Map.Entry< String,String> me:st){
+                if(text.equals(me.getKey())){
+                    System.out.println(me.getValue());
+                }
+            }
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 

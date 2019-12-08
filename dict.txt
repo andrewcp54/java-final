@@ -1,5 +1,5 @@
 SHM
-Short hand messager
+Short hand messenger
 hl
 hello
 hru
@@ -28,10 +28,6 @@ wt
 what
 wts
 whats
-fc
-fuck
-fy
-fuck you
 lmk
 let me know
 
