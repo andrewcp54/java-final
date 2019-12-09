@@ -13,7 +13,7 @@ import android.widget.EditText;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-    private Button btn;
+    private Button c_btn;
     private EditText et;
     String s;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = findViewById(R.id.chatbutton);
+        c_btn = findViewById(R.id.chatbutton);
         et = findViewById(R.id.editTest);
 
         et.addTextChangedListener(new TextWatcher() {
@@ -46,15 +46,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        c_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chat_test();
+                chat_launcher();
             }
         });
     }
 
-    private void chat_test(){
+    private void chat_launcher(){
         Intent myIntent = new Intent(MainActivity.this, chat.class);
         startActivity(myIntent);
     }
