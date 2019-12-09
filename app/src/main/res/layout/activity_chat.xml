@@ -7,20 +7,36 @@
     tools:context=".chat">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:gravity="center"
-        android:text="Test" />
+        android:text="Send a Message!" />
 
     <EditText
-        android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="22dp"
+        android:id="@+id/phone_num"
+        android:layout_below="@+id/text_banner"
+        android:hint="Phone number here..." />
+
+    <EditText
+        android:id="@+id/sms_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/phone_num"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="text"
+        android:hint="Your message here..." />
+
+    <Button
+        android:id="@+id/send_sms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sms_body"
+        android:layout_marginTop="15dp"
+        android:text="Send SMS" />
+
 </RelativeLayout>
