@@ -30,6 +30,11 @@ public class chat extends AppCompatActivity {
         });
     }
 
+
+    private void check_shorthand extends tapAutocorr {
+
+    }
+
     private void send_sms() {
         String sms_message = sms.getText().toString();
         String phone_field = phone_number.getText().toString();
