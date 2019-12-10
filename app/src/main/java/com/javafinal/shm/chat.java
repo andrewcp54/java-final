@@ -85,7 +85,11 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+<<<<<<< HEAD
                 s = sms.getText().toString();
+=======
+                /*        s = sms.getText().toString();
+>>>>>>> 9dafac28daf0eac47f8fa8a1f7302fd16f7b9b3e
                 Map< String, String> dict = new HashMap<>();
                 dict.put("hl","hello");
                 dict.put("SHM","Short hand messenger");
