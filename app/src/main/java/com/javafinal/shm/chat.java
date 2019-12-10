@@ -3,6 +3,8 @@ package com.javafinal.shm;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -16,7 +18,16 @@ import com.scaledrone.lib.Room;
 import com.scaledrone.lib.RoomListener;
 import com.scaledrone.lib.Scaledrone;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
+import java.util.Set;
 
 public class chat extends AppCompatActivity implements RoomListener {
     private EditText sms;
@@ -38,6 +49,44 @@ public class chat extends AppCompatActivity implements RoomListener {
 
         MemberData data = new MemberData(getRandomName(), getRandomColor());
 
+        sms.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                s = sms.getText().toString();
+                Map< String, String> dict = new HashMap< String, String>();
+                File file = new File("dict.txt");
+                try{
+                    Scanner scanner = new Scanner(file);
+                    while (scanner.hasNextLine()){
+                        String line = scanner.nextLine();
+                        if(scanner.hasNextLine()) {
+                            String line2 = scanner.nextLine();
+                            dict.put(line, line2);
+                        }
+                    }
+                } catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
+                Set< Map.Entry< String, String> > st = dict.entrySet();
+                for(Map.Entry< String,String> me:st){
+                    System.out.println(me.getValue());
+                    if(s.equals(me.getKey())){
+                        System.out.println(me.getValue());
+                        sms.setText(me.getValue());
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         sd = new Scaledrone(channel_ID, data);
         sd.connect(new Listener() {
             @Override
