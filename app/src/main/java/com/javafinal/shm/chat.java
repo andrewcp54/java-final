@@ -54,22 +54,6 @@ public class chat extends AppCompatActivity implements RoomListener {
 
         MemberData data = new MemberData(getRandomName(), getRandomColor());
 
-        sms.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         sd = new Scaledrone(channel_ID, data);
         sd.connect(new Listener() {
             @Override
@@ -119,16 +103,12 @@ public class chat extends AppCompatActivity implements RoomListener {
             for(Map.Entry< String,String> me:st){
                 if(s.equals(me.getKey())){
                     s=me.getValue();
-                    System.out.println(temp);
-                    System.out.println(s);
                 }
-
             }
             temp += " " + s;
         }
-        if (!temp.equals("")) {
-            message = temp;
-        }
+
+        if (!temp.equals("")) { message = temp; }
 
         if (message.length() > 0) {
             sd.publish(roomName, message);
