@@ -62,7 +62,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                
+
             }
 
             @Override
@@ -97,7 +97,8 @@ public class chat extends AppCompatActivity implements RoomListener {
 
     public void sendMessage(View view) {
         String message = sms.getText().toString();
-
+        String[] words;
+        words = message.split("\\s");
         Map< String, String> dict = new HashMap<>();
         dict.put("hl","hello");
         dict.put("SHM","Short hand messenger");
@@ -114,13 +115,19 @@ public class chat extends AppCompatActivity implements RoomListener {
         dict.put("wt","what");
         dict.put("lmk","let me know");
         Set< Map.Entry< String, String> > st = dict.entrySet();
-        for(Map.Entry< String,String> me:st){
-            if(message.equals(me.getKey())){
-                //sms.setText(me.getValue());
-                message = me.getValue();
-                //sms.setSelection(sms.getText().length());
+        for (String s:words) {
+            for(Map.Entry< String,String> me:st){
+                if(s.equals(me.getKey())){
+                    //sms.setText(me.getValue());
+                    message += " " + me.getValue();
+                    //sms.setSelection(sms.getText().length());
+                }
             }
+
+            System.out.println(s);
         }
+
+
 
         if (message.length() > 0) {
             sd.publish(roomName, message);
