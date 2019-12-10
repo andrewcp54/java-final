@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,7 +51,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
         MemberData data = new MemberData(getRandomName(), getRandomColor());
 
-        /*sms.addTextChangedListener(new TextWatcher() {
+        sms.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -57,7 +59,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                s = sms.getText().toString();
+        /*        s = sms.getText().toString();
                 Map< String, String> dict = new HashMap<>();
                 File file = new File("dict.txt");
                 try{
@@ -79,14 +81,14 @@ public class chat extends AppCompatActivity implements RoomListener {
                         System.out.println(me.getValue());
                         sms.setText(me.getValue());
                     }
-                }
+                }*/
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
             }
-        });*/
+        });
         sd = new Scaledrone(channel_ID, data);
         sd.connect(new Listener() {
             @Override
@@ -134,6 +136,7 @@ public class chat extends AppCompatActivity implements RoomListener {
     public void onMessage(Room room, com.scaledrone.lib.Message receivedMessage) {
         System.out.println("Sent message!");
         final ObjectMapper mapper = new ObjectMapper();
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         try {
             final MemberData data = mapper.treeToValue(receivedMessage.getMember().getClientData(), MemberData.class);
             boolean belongsToCurrentUser = receivedMessage.getClientID().equals(sd.getClientID());
