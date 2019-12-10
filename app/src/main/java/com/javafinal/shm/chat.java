@@ -40,34 +40,11 @@ public class chat extends AppCompatActivity implements RoomListener {
     private msgAdapter msg_a;
     private ListView msgs_view;
 
-    private String readFile() {
-        String myData = "";
-        File myExternalFile = new File("assets/","dict.txt");
-        try {
-            FileInputStream fis = new FileInputStream(myExternalFile);
-            DataInputStream in = new DataInputStream(fis);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-
-            String strLine;
-            while ((strLine = br.readLine()) != null) {
-                myData = myData + strLine + "\n";
-            }
-            br.close();
-            in.close();
-            fis.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return myData;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
-
-        readFile();
 
         sms = findViewById(R.id.sms_body);
 
@@ -85,7 +62,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                s = sms.getText().toString();
+                
             }
 
             @Override
