@@ -118,13 +118,14 @@ public class chat extends AppCompatActivity implements RoomListener {
         for (String s:words) {
             for(Map.Entry< String,String> me:st){
                 if(s.equals(me.getKey())){
-                    //sms.setText(me.getValue());
-                    temp += " " + me.getValue();
-                    //sms.setSelection(sms.getText().length());
+                    s=me.getValue();
+                    System.out.println(temp);
+                    System.out.println(s);
                 }
-            }
-        }
 
+            }
+            temp += " " + s;
+        }
         if (!temp.equals("")) {
             message = temp;
         }
