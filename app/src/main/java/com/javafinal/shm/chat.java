@@ -59,7 +59,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-        /*        s = sms.getText().toString();
+                /*        s = sms.getText().toString();
                 Map< String, String> dict = new HashMap<>();
                 File file = new File("dict.txt");
                 try{
