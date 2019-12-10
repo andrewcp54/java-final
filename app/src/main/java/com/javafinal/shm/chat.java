@@ -21,7 +21,9 @@ import com.scaledrone.lib.RoomListener;
 import com.scaledrone.lib.Scaledrone;
 
 import java.io.BufferedReader;
+import java.io.DataInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,10 +40,34 @@ public class chat extends AppCompatActivity implements RoomListener {
     private msgAdapter msg_a;
     private ListView msgs_view;
 
+    private String readFile() {
+        String myData = "";
+        File myExternalFile = new File("assets/","dict.txt");
+        try {
+            FileInputStream fis = new FileInputStream(myExternalFile);
+            DataInputStream in = new DataInputStream(fis);
+            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+
+            String strLine;
+            while ((strLine = br.readLine()) != null) {
+                myData = myData + strLine + "\n";
+            }
+            br.close();
+            in.close();
+            fis.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return myData;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
+
+        readFile();
 
         sms = findViewById(R.id.sms_body);
 
@@ -59,29 +85,30 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-        /*        s = sms.getText().toString();
+                s = sms.getText().toString();
                 Map< String, String> dict = new HashMap<>();
-                File file = new File("dict.txt");
-                try{
-                    Scanner scanner = new Scanner(file);
-                    while (scanner.hasNextLine()){
-                        String line = scanner.nextLine();
-                        if(scanner.hasNextLine()) {
-                            String line2 = scanner.nextLine();
-                            dict.put(line, line2);
-                        }
-                    }
-                } catch (FileNotFoundException e){
-                    e.printStackTrace();
-                }
+                dict.put("hl","hello");
+                dict.put("SHM","Short hand messenger");
+                dict.put("hru","how are you");
+                dict.put("gm","good morning");
+                dict.put("gn","good night");
+                dict.put("gb","good bye");
+                dict.put("ok","okay");
+                dict.put("tt","that");
+                dict.put("ty","thank you");
+                dict.put("thy","they");
+                dict.put("tm","them");
+                dict.put("wsu","whats up");
+                dict.put("wt","what");
+                dict.put("lmk","let me know");
                 Set< Map.Entry< String, String> > st = dict.entrySet();
                 for(Map.Entry< String,String> me:st){
-                    System.out.println(me.getValue());
                     if(s.equals(me.getKey())){
-                        System.out.println(me.getValue());
+                       // System.out.println(me.getValue());
                         sms.setText(me.getValue());
+                        sms.setSelection(sms.getText().length());
                     }
-                }*/
+                }
             }
 
             @Override

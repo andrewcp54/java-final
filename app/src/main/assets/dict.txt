@@ -1,0 +1,32 @@
+SHM
+Short hand messenger
+hl
+hello
+hru
+how are you
+gm
+good morning
+gn
+good night
+gb
+good bye
+ok
+okay
+tt
+that
+tts
+thats
+ty
+thank you
+thy
+they
+tm
+them
+wsu
+whats up
+wt
+what
+wts
+whats
+lmk
+let me know
