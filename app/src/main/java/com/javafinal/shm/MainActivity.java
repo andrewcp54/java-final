@@ -4,18 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private Button c_btn;
-    private EditText et;
-    String s;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         c_btn = findViewById(R.id.chatbutton);
-        et = findViewById(R.id.editTest);
-
-        et.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                s = et.getText().toString();
-                if (s.equals("GL")) {
-                    et.setText("Good luck");
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
 
         c_btn.setOnClickListener(new View.OnClickListener() {
             @Override

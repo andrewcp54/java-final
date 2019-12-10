@@ -49,7 +49,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
         MemberData data = new MemberData(getRandomName(), getRandomColor());
 
-        sms.addTextChangedListener(new TextWatcher() {
+        /*sms.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -58,7 +58,7 @@ public class chat extends AppCompatActivity implements RoomListener {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 s = sms.getText().toString();
-                Map< String, String> dict = new HashMap< String, String>();
+                Map< String, String> dict = new HashMap<>();
                 File file = new File("dict.txt");
                 try{
                     Scanner scanner = new Scanner(file);
@@ -86,7 +86,7 @@ public class chat extends AppCompatActivity implements RoomListener {
             public void afterTextChanged(Editable s) {
 
             }
-        });
+        });*/
         sd = new Scaledrone(channel_ID, data);
         sd.connect(new Listener() {
             @Override
