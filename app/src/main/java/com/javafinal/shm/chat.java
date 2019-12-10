@@ -96,7 +96,7 @@ public class chat extends AppCompatActivity implements RoomListener {
     }
 
     public void sendMessage(View view) {
-        String message = sms.getText().toString();
+        String message = sms.getText().toString(), temp = "";
         String[] words;
         words = message.split("\\s");
         Map< String, String> dict = new HashMap<>();
@@ -119,15 +119,15 @@ public class chat extends AppCompatActivity implements RoomListener {
             for(Map.Entry< String,String> me:st){
                 if(s.equals(me.getKey())){
                     //sms.setText(me.getValue());
-                    message += " " + me.getValue();
+                    temp += " " + me.getValue();
                     //sms.setSelection(sms.getText().length());
                 }
             }
-
-            System.out.println(s);
         }
 
-
+        if (!temp.equals("")) {
+            message = temp;
+        }
 
         if (message.length() > 0) {
             sd.publish(roomName, message);
