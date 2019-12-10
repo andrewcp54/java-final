@@ -85,34 +85,7 @@ public class chat extends AppCompatActivity implements RoomListener {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-<<<<<<< HEAD
                 s = sms.getText().toString();
-=======
-                /*        s = sms.getText().toString();
->>>>>>> 9dafac28daf0eac47f8fa8a1f7302fd16f7b9b3e
-                Map< String, String> dict = new HashMap<>();
-                dict.put("hl","hello");
-                dict.put("SHM","Short hand messenger");
-                dict.put("hru","how are you");
-                dict.put("gm","good morning");
-                dict.put("gn","good night");
-                dict.put("gb","good bye");
-                dict.put("ok","okay");
-                dict.put("tt","that");
-                dict.put("ty","thank you");
-                dict.put("thy","they");
-                dict.put("tm","them");
-                dict.put("wsu","whats up");
-                dict.put("wt","what");
-                dict.put("lmk","let me know");
-                Set< Map.Entry< String, String> > st = dict.entrySet();
-                for(Map.Entry< String,String> me:st){
-                    if(s.equals(me.getKey())){
-                       // System.out.println(me.getValue());
-                        sms.setText(me.getValue());
-                        sms.setSelection(sms.getText().length());
-                    }
-                }
             }
 
             @Override
@@ -147,6 +120,31 @@ public class chat extends AppCompatActivity implements RoomListener {
 
     public void sendMessage(View view) {
         String message = sms.getText().toString();
+
+        Map< String, String> dict = new HashMap<>();
+        dict.put("hl","hello");
+        dict.put("SHM","Short hand messenger");
+        dict.put("hru","how are you");
+        dict.put("gm","good morning");
+        dict.put("gn","good night");
+        dict.put("gb","good bye");
+        dict.put("ok","okay");
+        dict.put("tt","that");
+        dict.put("ty","thank you");
+        dict.put("thy","they");
+        dict.put("tm","them");
+        dict.put("wsu","whats up");
+        dict.put("wt","what");
+        dict.put("lmk","let me know");
+        Set< Map.Entry< String, String> > st = dict.entrySet();
+        for(Map.Entry< String,String> me:st){
+            if(message.equals(me.getKey())){
+                //sms.setText(me.getValue());
+                message = me.getValue();
+                //sms.setSelection(sms.getText().length());
+            }
+        }
+
         if (message.length() > 0) {
             sd.publish(roomName, message);
             sms.getText().clear();
@@ -232,3 +230,4 @@ class MemberData {
                 '}';
     }
 }
+
